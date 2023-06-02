@@ -2,10 +2,12 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 // ...
 import counterReducer from "../features/counterSlice";
 import imageReducer from "../images/imageSlice";
+import userReducer from "../features/User/UserSlice";
 
 const rootReducer = combineReducers({
   counterReducer,
-  imageReducer
+  imageReducer,
+  userReducer
 });
 
 export const setupStore = () => {
@@ -17,7 +19,8 @@ export const setupStore = () => {
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    images: imageReducer
+    images: imageReducer,
+    user: userReducer
   }
 });
 

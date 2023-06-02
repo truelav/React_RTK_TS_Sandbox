@@ -1,17 +1,24 @@
+import { useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "./hooks/hooks";
+// import { userSlice } from "./features/User/UserSlice";
+import { fetchUsers } from "./store/reducers/ActionCreators";
+
 import "./styles.css";
-// import Counter from "./features";
-import Images from "./images";
-import { Provider } from "react-redux";
-import { store } from "./store/store";
 
 export default function App() {
+  const dispatch = useAppDispatch();
+  const { users, isLoading, error } = useAppSelector((state) => state.user);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
   return (
-    <Provider store={store}>
-      <div className="App">
-        <h1>Hello CodeSandbox</h1>
-        {/* <Counter /> */}
-        <Images />
-      </div>
-    </Provider>
+    <div className="App">
+      {isLoading && <h1>Loading ...</h1>}
+      {error && <h1>There was an error, please try again later!</h1>}
+      <h1>Hello CodeSandbox</h1>
+      {JSON.stringify(users, null, 2)}
+    </div>
   );
 }
