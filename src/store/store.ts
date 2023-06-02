@@ -3,6 +3,17 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import counterReducer from "../features/counterSlice";
 import imageReducer from "../images/imageSlice";
 
+const rootReducer = combineReducers({
+  counterReducer,
+  imageReducer
+});
+
+export const setupStore = () => {
+  return configureStore({
+    reducer: rootReducer
+  });
+};
+
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
