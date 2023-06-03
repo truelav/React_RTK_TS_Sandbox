@@ -18,7 +18,11 @@ export default function App() {
       {isLoading && <h1>Loading ...</h1>}
       {error && <h1>There was an error, please try again later!</h1>}
       <h1>Hello CodeSandbox</h1>
-      {JSON.stringify(users, null, 2)}
+      <div>
+        {users.map((user) => {
+          return <p key={user.id}>{user.name}</p>;
+        })}
+      </div>
     </div>
   );
 }
