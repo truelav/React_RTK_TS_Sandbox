@@ -26,7 +26,7 @@ export const fetchUsers = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const response = await axios.get<IUser[]>(
-        "https://jsonplaceholder.typicode.com/users11"
+        "https://jsonplaceholder.typicode.com/users"
       );
       return response.data;
     } catch (e) {

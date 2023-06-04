@@ -3,6 +3,7 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import counterReducer from "../features/counterSlice";
 import imageReducer from "../images/imageSlice";
 import userReducer from "../features/User/UserSlice";
+import { postAPI } from "../../services/PostService";
 
 const rootReducer = combineReducers({
   counterReducer,
